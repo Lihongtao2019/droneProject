@@ -19,8 +19,6 @@ created by 黎鸿滔
 1. 安装Anaconda3，创建实验所需环境（实验中Python版本为3.8）
 2. 安装Pytorch，因为本次实验采用GPU训练模型，因此选用支持GPU的Pytorch版本，同时CUDA版本不得低于11.3：`pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117`
 3. 在激活环境后，进入到yolov5文件目录路径下，下载安装yolov5模型所需要的所有依赖（requirements.txt文件中关于torch和torchvision已被注释，因为默认下载CPU版本）：`pip install -r requirements.txt`
-4. 执行makeTrainLabel.py，生成训练所需的标签文件
-5. 修改train.py中参数，其中--weights表示预训练模型，采用yolov5s.pt，下载链接`https://github.com/ultralytics/yolov5/releases/download/v7.0/yolov5s.pt`，下载完成后将模型文件存放在与train.py同一目录下；--data表示数据配置文件，则使用data文件夹下的drone.yaml文件；--device表示使用CPU或GPU来训练模型，值为'cpu'时表示使用CPU，而为'0,1,2'等数字时，表示使用的GPU的设备号，从0开始计数，由于实验在本地环境下进行，因此只有一个GPU，因此设置值为0
-6. 随后开始训练，训练完成后实验结果保存在runs/train/exp文件夹下，其中包括weights文件夹，包括训练得到的模型，其中last为最后一轮训练得到模型，best则是训练过程中，综合特征指标最优的模型，以及实验得到的可视化数据
-7. 修改detect.py中参数，将--weights设置为训练得到的best.pt模型文件；--source表示待检测的目标图像文件或目录，并修改主函数，使得能对多目录下的图片集合进行检测，随后开始检测
+4. 执行makeTrainLabel.py，生成训练所需的标签文件存放于labels/train
+5. 执行yolov5文件下detect.py，将会在labels/test文件夹下生成对应的test图像的标签
 8. 执行makeTestResults.py，生成任务所需的实验结果

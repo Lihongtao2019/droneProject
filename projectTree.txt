@@ -1,0 +1,22 @@
+.
+│  makeTestResults.py
+│  makeTrainLabel.py
+│  README.md
+│  projectTree.txt
+│
+├─images
+│    ├─test
+│    ├─train
+│
+├─labels
+│    ├─test
+│    ├─train
+│
+├─result
+│    
+├─yolov5
+
+
+ps：
+images文件夹初始为空，用于存放图像数据即为原始数据。
+result存放最终任务所需结果。
